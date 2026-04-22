@@ -1,0 +1,41 @@
+### Health
+GET http://localhost:3001/api/health
+
+### List seeded documents
+GET http://localhost:3001/api/documents
+
+### List chunks (after ingest)
+GET http://localhost:3001/api/chunks
+
+### Re-run seed (needs GROQ_API_KEY)
+POST http://localhost:3001/api/documents/seed
+
+### Retrieve snippets only
+POST http://localhost:3001/api/retrieve
+Content-Type: application/json
+
+{
+  "query": "can I run a postgres database on spot instances?",
+  "limit": 4
+}
+
+### RAG answer with citations
+POST http://localhost:3001/api/ask
+Content-Type: application/json
+
+{
+  "question": "How do EU customers keep data in Ireland?",
+  "limit": 4
+}
+
+### Ingest a document (chunked + embedded)
+POST http://localhost:3001/api/documents
+Content-Type: application/json
+
+{
+  "title": "GPU waitlist",
+  "content": "GPU instances are on a waitlist. You need 30 days of billing history and an Owner role. Approved workspaces can launch a100.small in us-east-1 only. Spot GPUs are not offered.",
+  "metadata": {
+    "topic": "compute"
+  }
+}
