@@ -1,6 +1,8 @@
 export function cosineSimilarity(a: number[], b: number[]): number {
   if (a.length === 0 || a.length !== b.length) {
-    throw new Error('Vectors must have the same non-zero length');
+    throw new Error(
+      `Vectors must have the same non-zero length (got ${a.length} and ${b.length})`,
+    );
   }
 
   let dot = 0;
