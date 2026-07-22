@@ -28,6 +28,15 @@ Content-Type: application/json
   "limit": 4
 }
 
+### Ask about billing pause
+POST http://localhost:3001/api/ask
+Content-Type: application/json
+
+{
+  "question": "What happens if my card fails?",
+  "limit": 3
+}
+
 ### Ingest a document (chunked + embedded)
 POST http://localhost:3001/api/documents
 Content-Type: application/json
